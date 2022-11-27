@@ -18,6 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
 part 'parts/build_ListCountries.dart';
 part 'parts/build_countryCard.dart';
+part 'parts/build_pages.dart';
 part 'parts/build_searchWidget.dart';
 
 class HomeView extends StatefulWidget {
@@ -44,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
         title: Text(ApplicationConstants.app_name),
       ),
-      body: GestureDetector(child: _BuildListCountries()),
+      body: _BuildListCountries(),
     );
   }
 }

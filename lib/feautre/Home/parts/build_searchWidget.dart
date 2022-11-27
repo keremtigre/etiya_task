@@ -8,8 +8,9 @@ class _SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: context.read<HomeCubit>().searchTextController,
       onChanged: (value) async {
-        await context.read<HomeCubit>().textFormOnChanged(value);
+        await context.read<HomeCubit>().textFormOnChanged();
       },
       decoration: InputDecoration(
         fillColor: Colors.grey.withOpacity(0.3),

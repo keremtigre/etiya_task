@@ -18,11 +18,15 @@ class CountryService extends ICountryService {
         final jsonBody = response.data;
         return Countries.fromJson(jsonBody);
       } else {
+        print(
+            "Exception (COUNTRY SERVICE - STATUS): ${ErrorStrings.client_error} " +
+                response.statusCode.toString());
         return Countries.withError(
             "${ErrorStrings.client_error} " + response.statusCode.toString());
       }
     } catch (error, stacktrace) {
-      print("Exception: $error stackTrace: $stacktrace");
+      print(
+          "Exception (COUNTRY SERVICE - CATCHED): $error stackTrace: $stacktrace");
       return Countries.withError(ErrorStrings.network_error);
     }
   }

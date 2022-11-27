@@ -6,15 +6,17 @@ import 'package:etiya_task/feautre/Home/models/country_model.dart';
 import 'package:etiya_task/feautre/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/Strings/network/network_strings.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
-  late final _countryService;
+  late CountryService _countryService;
   late Countries countryModel;
   late List<String> tempCountry = [];
+  TextEditingController searchTextController = TextEditingController();
 
   Future init() async {
     try {
@@ -34,14 +36,14 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  textFormOnChanged(String value) {
-    if (value.isEmpty) {
+  textFormOnChanged() {
+    if (searchTextController.text.isEmpty) {
       tempCountry = countryModel.response ?? [];
       emit(HomeLoaded());
     } else {
       tempCountry = tempCountry.where((s) {
         tempCountry = countryModel.response ?? [];
-        String _value = value.toLowerCase();
+        String _value = searchTextController.text.toLowerCase();
 
         if (s.toLowerCase().contains(_value)) {
           return true;
