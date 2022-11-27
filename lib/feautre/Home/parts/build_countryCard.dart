@@ -16,16 +16,11 @@ class BuildCard extends StatelessWidget
           child: ListView.builder(
             itemCount: context.read<HomeCubit>().tempCountry.length,
             itemBuilder: (context, index) {
+              final _country =
+                  context.watch<HomeCubit>().tempCountry[index].toString();
               return GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (_) => CovidDataPage(
-                                countryName: context
-                                    .read<HomeCubit>()
-                                    .tempCountry[index],
-                              )));
+                  context.router.push(CovidDataRoute(countryName: _country));
                 },
                 child: Container(
                   margin: const EdgeInsets.all(8.0),
@@ -40,15 +35,11 @@ class BuildCard extends StatelessWidget
                               width: 50,
                               errorWidget:
                                   toWidget(LottiePathEnum.loading.name),
-                              country_name: context
-                                  .watch<HomeCubit>()
-                                  .tempCountry[index]
-                                  .toLowerCase()),
+                              country_name: _country.toLowerCase()),
                           const SizedBox(
                             width: 20,
                           ),
-                          Text(
-                              "${context.watch<HomeCubit>().tempCountry[index]}"),
+                          Text("${_country}"),
                           const Spacer(),
                           const Icon(Icons.arrow_forward_ios)
                         ],

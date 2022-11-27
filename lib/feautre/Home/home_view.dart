@@ -1,5 +1,6 @@
 library home_view.dart;
 
+import 'package:auto_route/auto_route.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:etiya_task/core/constants/app/app_constants.dart';
@@ -9,6 +10,7 @@ import 'package:etiya_task/feautre/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Widget/scaffold_messenger.dart';
 import 'package:etiya_task/product/enums/lottie_path_enum.dart';
 import 'package:etiya_task/product/mixin/NetworkImagePathExtension.dart';
+import 'package:etiya_task/product/navigation/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -18,14 +20,14 @@ part 'parts/build_ListCountries.dart';
 part 'parts/build_countryCard.dart';
 part 'parts/build_searchWidget.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeView> createState() => _HomeViewState();
 }
 
-class _HomeState extends State<Home> {
+class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     // TODO: implement initState
