@@ -7,6 +7,7 @@ import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';
 import 'package:etiya_task/product/Strings/covidDataPage_strings.dart';
 import 'package:etiya_task/product/Widget/covid_data_card.dart';
 import 'package:etiya_task/product/Widget/index_viewer.dart';
+import 'package:etiya_task/product/Widget/reload_button.dart';
 import 'package:etiya_task/product/Widget/scaffold_messenger.dart';
 import 'package:etiya_task/product/enums/lottie_path_enum.dart';
 import 'package:etiya_task/product/mixin/NetworkImagePathExtension.dart';
@@ -41,6 +42,10 @@ class _CovidDataViewState extends State<CovidDataView>
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
+        actions: [
+          reloadButton(context,
+              () => context.read<CovidDataCubit>().init(widget.countryName))
+        ],
         title: Text(widget.countryName),
       ),
       body: SingleChildScrollView(
@@ -48,7 +53,7 @@ class _CovidDataViewState extends State<CovidDataView>
         child: Container(
           height: context.height,
           width: context.width,
-          margin: EdgeInsets.all(8.0),
+          margin: const EdgeInsets.all(8.0),
           child: BlocConsumer<CovidDataCubit, CovidDataState>(
             listener: (context, state) {
               if (state is CovidDataError) {

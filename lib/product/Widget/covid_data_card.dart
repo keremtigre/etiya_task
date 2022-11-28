@@ -35,7 +35,7 @@ class CovidDataCard extends StatelessWidget {
           ),
           Row(
             children: [
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(right: 20, bottom: 20),
                 child: Text(

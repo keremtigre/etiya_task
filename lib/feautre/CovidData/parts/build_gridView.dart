@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 part of covidData_view.dart;
 
 class BuildGridView extends StatelessWidget {
@@ -21,7 +23,7 @@ class BuildGridView extends StatelessWidget {
             return Column(
               children: [
                 GridView.count(
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   shrinkWrap: true,
                   children: [
@@ -60,21 +62,21 @@ class BuildGridView extends StatelessWidget {
                             result: (response.cases?.recovered ?? 0).toString(),
                             title: CovidDataPageStrings.recoverdCase,
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                     index == 0
                         ? CovidDataCard(
                             color: Colors.cyan,
                             result: (response.cases?.total ?? 0).toString(),
                             title: CovidDataPageStrings.totalCase,
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                     index == 0
                         ? CovidDataCard(
                             color: Colors.cyan,
                             result: (response.cases?.s1MPop ?? "0").toString(),
                             title: CovidDataPageStrings.s1MPop,
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ],
                 ),
               ],

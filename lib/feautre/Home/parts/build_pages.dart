@@ -19,7 +19,7 @@ class BuildPages extends StatelessWidget with LottiePathEnumExtension {
           } else if (state is HomeLoading) {
             return toWidget(LottiePathEnum.loading.name);
           } else if (state is HomeLoaded) {
-            return BuildListCountries();
+            return const BuildListCountries();
           } else if (state is HomeError) {
             return Center(
               child: toWidget(LottiePathEnum.error.name),

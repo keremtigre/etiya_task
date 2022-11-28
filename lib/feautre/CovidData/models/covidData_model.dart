@@ -1,22 +1,24 @@
+// ignore_for_file: file_names, prefer_collection_literals
+
 class CovidDataModel {
   List<CovidDataResponse>? response;
   String? error;
-  CovidDataModel({this.response});
+  CovidDataModel({response});
 
   CovidDataModel.fromJson(Map<String, dynamic> json) {
     if (json['response'] != null) {
       response = <CovidDataResponse>[];
       json['response'].forEach((v) {
-        response!.add(new CovidDataResponse.fromJson(v));
+        response!.add( CovidDataResponse.fromJson(v));
       });
     }
   }
-  CovidDataModel.withError(this.error);
+  CovidDataModel.withError(error);
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.response != null) {
-      data['response'] = this.response!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    if (response != null) {
+      data['response'] = response!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -33,43 +35,43 @@ class CovidDataResponse {
   String? time;
 
   CovidDataResponse(
-      {this.continent,
-      this.country,
-      this.population,
-      this.cases,
-      this.deaths,
-      this.tests,
-      this.day,
-      this.time});
+      {continent,
+      country,
+      population,
+      cases,
+      deaths,
+      tests,
+      day,
+      time});
 
   CovidDataResponse.fromJson(Map<String, dynamic> json) {
     continent = json['continent'];
     country = json['country'];
     population = json['population'];
-    cases = json['cases'] != null ? new Cases.fromJson(json['cases']) : null;
+    cases = json['cases'] != null ?  Cases.fromJson(json['cases']) : null;
     deaths =
-        json['deaths'] != null ? new Deaths.fromJson(json['deaths']) : null;
-    tests = json['tests'] != null ? new Tests.fromJson(json['tests']) : null;
+        json['deaths'] != null ?  Deaths.fromJson(json['deaths']) : null;
+    tests = json['tests'] != null ?  Tests.fromJson(json['tests']) : null;
     day = json['day'];
     time = json['time'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['continent'] = this.continent;
-    data['country'] = this.country;
-    data['population'] = this.population;
-    if (this.cases != null) {
-      data['cases'] = this.cases!.toJson();
+    final Map<String, dynamic> data =  Map<String, dynamic>();
+    data['continent'] = continent;
+    data['country'] = country;
+    data['population'] = population;
+    if (cases != null) {
+      data['cases'] = cases!.toJson();
     }
-    if (this.deaths != null) {
-      data['deaths'] = this.deaths!.toJson();
+    if (deaths != null) {
+      data['deaths'] = deaths!.toJson();
     }
-    if (this.tests != null) {
-      data['tests'] = this.tests!.toJson();
+    if (tests != null) {
+      data['tests'] = tests!.toJson();
     }
-    data['day'] = this.day;
-    data['time'] = this.time;
+    data['day'] = day;
+    data['time'] = time;
     return data;
   }
 }
@@ -83,12 +85,12 @@ class Cases {
   int? total;
 
   Cases(
-      {this.newCases,
-      this.active,
-      this.critical,
-      this.recovered,
-      this.s1MPop,
-      this.total});
+      {newCases,
+      active,
+      critical,
+      recovered,
+      s1MPop,
+      total});
 
   Cases.fromJson(Map<String, dynamic> json) {
     newCases = json['new'];
@@ -100,13 +102,13 @@ class Cases {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['new'] = this.newCases;
-    data['active'] = this.active;
-    data['critical'] = this.critical;
-    data['recovered'] = this.recovered;
-    data['1M_pop'] = this.s1MPop;
-    data['total'] = this.total;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['new'] = newCases;
+    data['active'] = active;
+    data['critical'] = critical;
+    data['recovered'] = recovered;
+    data['1M_pop'] = s1MPop;
+    data['total'] = total;
     return data;
   }
 }
@@ -116,7 +118,7 @@ class Deaths {
   String? s1MPop;
   int? total;
 
-  Deaths({this.newDeaths, this.s1MPop, this.total});
+  Deaths({newDeaths, s1MPop, total});
 
   Deaths.fromJson(Map<String, dynamic> json) {
     newDeaths = json['new'];
@@ -125,10 +127,10 @@ class Deaths {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['new'] = this.newDeaths;
-    data['1M_pop'] = this.s1MPop;
-    data['total'] = this.total;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['new'] = newDeaths;
+    data['1M_pop'] = s1MPop;
+    data['total'] = total;
     return data;
   }
 }
@@ -137,7 +139,7 @@ class Tests {
   String? s1MPop;
   int? total;
 
-  Tests({this.s1MPop, this.total});
+  Tests({s1MPop, total});
 
   Tests.fromJson(Map<String, dynamic> json) {
     s1MPop = json['1M_pop'];
@@ -145,9 +147,9 @@ class Tests {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['1M_pop'] = this.s1MPop;
-    data['total'] = this.total;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['1M_pop'] = s1MPop;
+    data['total'] = total;
     return data;
   }
 }

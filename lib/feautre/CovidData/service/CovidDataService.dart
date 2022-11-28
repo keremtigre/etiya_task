@@ -1,10 +1,10 @@
+// ignore_for_file: file_names, prefer_interpolation_to_compose_strings, unused_catch_stack
+
 import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';
 import 'package:etiya_task/feautre/CovidData/service/ICovidDataService.dart';
-import 'package:etiya_task/feautre/Home/models/country_model.dart';
-import 'package:etiya_task/feautre/Home/service/ICountryService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/enums/urlPathEnum.dart';
 

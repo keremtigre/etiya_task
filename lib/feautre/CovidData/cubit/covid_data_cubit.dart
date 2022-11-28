@@ -1,3 +1,5 @@
+// ignore_for_file: depend_on_referenced_packages, prefer_const_constructors
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';

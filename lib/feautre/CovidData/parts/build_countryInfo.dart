@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, prefer_const_constructors, unused_element
+
 part of covidData_view.dart;
 
 class _CountryInfo extends StatelessWidget
@@ -10,10 +12,11 @@ class _CountryInfo extends StatelessWidget
   Widget build(BuildContext context) {
     return Container(
       height: context.height / 6,
-      margin: EdgeInsets.all(10),
+      margin: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.9),
           borderRadius: BorderRadius.circular(20),
+          // ignore: prefer_const_literals_to_create_immutables
           boxShadow: [
             BoxShadow(blurRadius: 10, color: Colors.grey, offset: Offset(1, 1))
           ]),

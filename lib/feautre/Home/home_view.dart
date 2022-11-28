@@ -8,6 +8,7 @@ import 'package:etiya_task/feautre/CovidData/covidData_view.dart';
 import 'package:etiya_task/feautre/Home/cubit/home_cubit.dart';
 import 'package:etiya_task/feautre/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Strings/network/homePage_strings.dart';
+import 'package:etiya_task/product/Widget/reload_button.dart';
 import 'package:etiya_task/product/Widget/scaffold_messenger.dart';
 import 'package:etiya_task/product/enums/lottie_path_enum.dart';
 import 'package:etiya_task/product/mixin/NetworkImagePathExtension.dart';
@@ -22,6 +23,7 @@ part 'parts/build_ListCountries.dart';
 part 'parts/build_countryCard.dart';
 part 'parts/build_pages.dart';
 part 'parts/build_searchWidget.dart';
+part 'parts/build_noDataFoundWidget.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -44,10 +46,18 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          reloadButton(
+            context,
+            () async => await context.read<HomeCubit>().init(),
+          )
+        ],
         centerTitle: true,
-        title: const Text(ApplicationConstants.app_name),
+        title: const Text(
+          ApplicationConstants.app_name,
+        ),
       ),
-      body:  BuildPages(),
+      body: const BuildPages(),
     );
   }
 }

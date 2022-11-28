@@ -17,9 +17,9 @@ mixin NetworkImagePathExtansion {
         child: CachedNetworkImage(
             imageUrl: "https://img.icons8.com/color/512/${country_name}.png",
             progressIndicatorBuilder: (context, url, downloadProgress) =>
-                errorWidget ?? SizedBox(),
+                errorWidget ?? const SizedBox(),
             errorWidget: (context, url, error) {
-              return new Icon(Icons.error);
+              return const Icon(Icons.error);
             }),
       ),
     );
