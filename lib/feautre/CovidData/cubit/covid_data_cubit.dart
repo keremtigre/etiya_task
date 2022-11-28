@@ -14,7 +14,7 @@ class CovidDataCubit extends Cubit<CovidDataState> {
   CovidDataCubit() : super(CovidDataInitial());
   // ignore_for_file: prefer_typing_uninitialized_variables, no_leading_underscores_for_local_identifiers
 
-  late CovidDataService _countryService;
+  late CovidDataService _covidService;
   late CovidDataModel covidModel;
   int currentIndex = 0;
   //for index_viewer
@@ -28,14 +28,16 @@ class CovidDataCubit extends Cubit<CovidDataState> {
     try {
       emit(CovidDataLoading());
       //init CountryService
-      _countryService = CovidDataService(
+      late CovidDataService _covidService = CovidDataService(
           Dio(BaseOptions(baseUrl: NetworkStrings.baseUrl, queryParameters: {
         "country": country
       }, headers: {
         "X-RapidAPI-Key": NetworkStrings.api_key,
       })));
       // getData
-      covidModel = await _countryService.fetchCovidDataItem();
+      covidModel = await _covidService.fetchCovidDataItem().catchError((error) {
+        emit(CovidDataError(covidModel.error));
+      });
       //if has error change state to CovidDataError
       if (covidModel.error != null) {
         emit(CovidDataError(covidModel.error));

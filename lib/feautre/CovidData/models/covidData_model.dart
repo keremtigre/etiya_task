@@ -9,14 +9,14 @@ class CovidDataModel {
     if (json['response'] != null) {
       response = <CovidDataResponse>[];
       json['response'].forEach((v) {
-        response!.add( CovidDataResponse.fromJson(v));
+        response!.add(CovidDataResponse.fromJson(v));
       });
     }
   }
-  CovidDataModel.withError(error);
+  CovidDataModel.withError(this.error);
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     if (response != null) {
       data['response'] = response!.map((v) => v.toJson()).toList();
     }
@@ -35,29 +35,21 @@ class CovidDataResponse {
   String? time;
 
   CovidDataResponse(
-      {continent,
-      country,
-      population,
-      cases,
-      deaths,
-      tests,
-      day,
-      time});
+      {continent, country, population, cases, deaths, tests, day, time});
 
   CovidDataResponse.fromJson(Map<String, dynamic> json) {
     continent = json['continent'];
     country = json['country'];
     population = json['population'];
-    cases = json['cases'] != null ?  Cases.fromJson(json['cases']) : null;
-    deaths =
-        json['deaths'] != null ?  Deaths.fromJson(json['deaths']) : null;
-    tests = json['tests'] != null ?  Tests.fromJson(json['tests']) : null;
+    cases = json['cases'] != null ? Cases.fromJson(json['cases']) : null;
+    deaths = json['deaths'] != null ? Deaths.fromJson(json['deaths']) : null;
+    tests = json['tests'] != null ? Tests.fromJson(json['tests']) : null;
     day = json['day'];
     time = json['time'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  Map<String, dynamic>();
+    final Map<String, dynamic> data = Map<String, dynamic>();
     data['continent'] = continent;
     data['country'] = country;
     data['population'] = population;
@@ -84,13 +76,7 @@ class Cases {
   String? s1MPop;
   int? total;
 
-  Cases(
-      {newCases,
-      active,
-      critical,
-      recovered,
-      s1MPop,
-      total});
+  Cases({newCases, active, critical, recovered, s1MPop, total});
 
   Cases.fromJson(Map<String, dynamic> json) {
     newCases = json['new'];
