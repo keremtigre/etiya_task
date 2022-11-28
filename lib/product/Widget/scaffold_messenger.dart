@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 scaffoldMessengerHelper(BuildContext context, String text, int seconds) {
@@ -9,5 +8,5 @@ scaffoldMessengerHelper(BuildContext context, String text, int seconds) {
         borderRadius: BorderRadius.circular(10.0),
       ),
       backgroundColor: Colors.red.shade400,
-      content: AutoSizeText(text)));
+      content: Text(text)));
 }
