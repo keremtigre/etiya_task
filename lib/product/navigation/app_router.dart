@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:etiya_task/feautre/Details/covidData_view.dart';
+import 'package:etiya_task/feautre/CovidData/covidData_view.dart';
 import 'package:etiya_task/feautre/Home/home_view.dart';
 import 'package:flutter/material.dart';
 

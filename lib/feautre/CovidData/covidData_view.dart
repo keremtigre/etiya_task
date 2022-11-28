@@ -17,15 +17,15 @@ part 'parts/build_IndexViewer.dart';
 part 'parts/build_countryInfo.dart';
 part 'parts/build_gridView.dart';
 
-class CovidDataPage extends StatefulWidget {
+class CovidDataView extends StatefulWidget {
   final String countryName;
-  const CovidDataPage({super.key, required this.countryName});
+  const CovidDataView({super.key, required this.countryName});
 
   @override
-  State<CovidDataPage> createState() => _CovidDataPageState();
+  State<CovidDataView> createState() => _CovidDataViewState();
 }
 
-class _CovidDataPageState extends State<CovidDataPage>
+class _CovidDataViewState extends State<CovidDataView>
     with NetworkImagePathExtansion, NumberFormat, LottiePathEnumExtension {
   @override
   void initState() {
@@ -61,8 +61,8 @@ class _CovidDataPageState extends State<CovidDataPage>
               } else if (state is CovidDataLoading) {
                 return toWidget(LottiePathEnum.loading.name);
               } else if (state is CovidDataLoaded) {
-                return _BuildGridView(
-                    context, state.response, widget.countryName);
+                return BuildGridView(
+                    countryName: widget.countryName, response: state.response);
               } else if (state is CovidDataError) {
                 return Center(
                   child: toWidget(LottiePathEnum.error.name),

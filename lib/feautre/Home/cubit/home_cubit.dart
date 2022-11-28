@@ -12,7 +12,9 @@ import 'package:meta/meta.dart';
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit() : super(HomeInitial());
+  HomeCubit() : super(HomeInitial()) {
+    init();
+  }
   late CountryService _countryService;
   late Countries countryModel;
   late List<String> tempCountry = [];
@@ -41,8 +43,8 @@ class HomeCubit extends Cubit<HomeState> {
       tempCountry = countryModel.response ?? [];
       emit(HomeLoaded());
     } else {
+      tempCountry = countryModel.response ?? [];
       tempCountry = tempCountry.where((s) {
-        tempCountry = countryModel.response ?? [];
         String _value = searchTextController.text.toLowerCase();
 
         if (s.toLowerCase().contains(_value)) {

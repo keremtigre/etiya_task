@@ -15,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:kartal/kartal.dart';
 import 'package:lottie/lottie.dart';
 part 'parts/build_ListCountries.dart';
 part 'parts/build_countryCard.dart';
@@ -37,7 +38,6 @@ class _HomeViewState extends State<HomeView> {
       await context.read<HomeCubit>().init();
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +45,7 @@ class _HomeViewState extends State<HomeView> {
         centerTitle: true,
         title: Text(ApplicationConstants.app_name),
       ),
-      body: _BuildListCountries(),
+      body: BuildPages(),
     );
   }
 }

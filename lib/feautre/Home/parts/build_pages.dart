@@ -1,7 +1,7 @@
 part of home_view.dart;
 
-class _BuildListCountries extends StatelessWidget with LottiePathEnumExtension {
-  const _BuildListCountries({super.key});
+class BuildPages extends StatelessWidget with LottiePathEnumExtension {
+  const BuildPages({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class _BuildListCountries extends StatelessWidget with LottiePathEnumExtension {
           } else if (state is HomeLoading) {
             return toWidget(LottiePathEnum.loading.name);
           } else if (state is HomeLoaded) {
-            return const BuildCard();
+            return  BuildListCountries();
           } else if (state is HomeError) {
             return Center(
               child: toWidget(LottiePathEnum.error.name),

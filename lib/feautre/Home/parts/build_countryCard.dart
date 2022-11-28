@@ -1,8 +1,8 @@
 part of home_view.dart;
 
-class _BuildCard extends StatelessWidget
+class BuildCard extends StatelessWidget
     with NetworkImagePathExtansion, LottiePathEnumExtension {
-  const _BuildCard({super.key, required this.index});
+  const BuildCard({super.key, required this.index});
   final int index;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _BuildCard extends StatelessWidget
                     width: 20,
                   ),
                   Text(
-                      "${context.read<HomeCubit>().tempCountry[index].toString()}"),
+                      "${context.watch<HomeCubit>().tempCountry[index].toString()}"),
                   const Spacer(),
                   const Icon(Icons.arrow_forward_ios)
                 ],

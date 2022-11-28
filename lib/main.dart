@@ -10,13 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 void main() {
   runApp(DevicePreview(
     enabled: !kReleaseMode,
-    builder: (context) => MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => HomeCubit()),
-        BlocProvider(create: (context) => CovidDataCubit())
-      ],
-      child: MyApp(),
-    ),
+    builder: (context) => MyApp(),
   ));
 }
 
@@ -25,15 +19,22 @@ class MyApp extends StatelessWidget {
   final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      routerDelegate: _appRouter.delegate(),
-      routeInformationParser: _appRouter.defaultRouteParser(),
-      theme: ThemeData(
-        appBarTheme: AppBarTheme(
-          backgroundColor: Colors.red.shade400,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => HomeCubit()),
+        BlocProvider(create: (context) => CovidDataCubit())
+      ],
+      child: MaterialApp.router(
+        routerDelegate: _appRouter.delegate(),
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        theme: ThemeData(
+          primaryColor: Colors.red.shade400,
+          appBarTheme: AppBarTheme(
+            backgroundColor: Colors.red.shade400,
+          ),
+          scaffoldBackgroundColor: Colors.white,
+          colorScheme: ColorScheme.light(),
         ),
-        scaffoldBackgroundColor: Colors.white,
-        colorScheme: ColorScheme.light(),
       ),
     );
   }

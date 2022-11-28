@@ -2,8 +2,8 @@
 
 part of home_view.dart;
 
-class BuildCard extends StatelessWidget {
-  const BuildCard({
+class BuildListCountries extends StatelessWidget {
+  const BuildListCountries({
     super.key,
   });
 
@@ -11,21 +11,25 @@ class BuildCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const _SearchWidget(),
+        SearchWidget(),
         Flexible(
-          child: context.read<HomeCubit>().tempCountry.length > 0
-              ? ListView.builder(
-                  itemCount: context.watch<HomeCubit>().tempCountry.length,
-                  itemBuilder: (context, index) {
-                    return _BuildCard(
-                      index: index,
-                    );
-                  },
-                )
-              : Center(
-                  child: Text("No data found to list."),
-                ),
-        ),
+            child: ListView.builder(
+          itemCount: context.watch<HomeCubit>().tempCountry.length,
+          itemBuilder: (context, index) {
+            return BuildCard(
+              index: index,
+            );
+          },
+        )),
+        context.read<HomeCubit>().tempCountry.length < 1
+            ? SizedBox(
+                height: context.height / 20,
+                width: context.width,
+                child: Card(
+                    color: Theme.of(context).primaryColor,
+                    child: Text("No data found to list",)),
+              )
+            : SizedBox()
       ],
     );
   }
