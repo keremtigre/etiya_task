@@ -17,11 +17,11 @@ class SearchWidget extends StatelessWidget {
         decoration: InputDecoration(
           fillColor: Colors.grey.withOpacity(0.3),
           filled: true,
-          labelText: "Aramak istediğiniz ülkeyi giriniz",
+          labelText: HomePageStrings.search_hint_text,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
-          hintText: "Aramak istediğiniz ülkeyi giriniz",
+          hintText: HomePageStrings.search_hint_text,
           prefixText: ' ',
         ),
       ),

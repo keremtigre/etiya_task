@@ -7,6 +7,7 @@ import 'package:etiya_task/core/constants/app/app_constants.dart';
 import 'package:etiya_task/feautre/CovidData/covidData_view.dart';
 import 'package:etiya_task/feautre/Home/cubit/home_cubit.dart';
 import 'package:etiya_task/feautre/Home/service/CountryService.dart';
+import 'package:etiya_task/product/Strings/network/homePage_strings.dart';
 import 'package:etiya_task/product/Widget/scaffold_messenger.dart';
 import 'package:etiya_task/product/enums/lottie_path_enum.dart';
 import 'package:etiya_task/product/mixin/NetworkImagePathExtension.dart';
@@ -38,14 +39,15 @@ class _HomeViewState extends State<HomeView> {
       await context.read<HomeCubit>().init();
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(ApplicationConstants.app_name),
+        title: const Text(ApplicationConstants.app_name),
       ),
-      body: BuildPages(),
+      body:  BuildPages(),
     );
   }
 }

@@ -7,7 +7,6 @@ import 'package:etiya_task/feautre/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/Strings/network/network_strings.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 
 part 'home_state.dart';
 
@@ -23,13 +22,16 @@ class HomeCubit extends Cubit<HomeState> {
   Future init() async {
     try {
       emit(HomeLoading());
+      //init CountryService
       _countryService = CountryService(
           Dio(BaseOptions(baseUrl: NetworkStrings.baseUrl, headers: {
         "X-RapidAPI-Key": NetworkStrings.api_key,
       })));
+      //get data
       countryModel = await _countryService.fetchCountriesItem();
       tempCountry = countryModel.response ?? [];
       emit(HomeLoaded());
+      // if has error, change state to homeError
       if (countryModel.error != null) {
         emit(HomeError(countryModel.error));
       }

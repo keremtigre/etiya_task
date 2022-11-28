@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, library_names
+
 library covidData_view.dart;
 
 import 'package:etiya_task/feautre/CovidData/cubit/covid_data_cubit.dart';
@@ -12,7 +14,6 @@ import 'package:etiya_task/product/mixin/numberFormat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:kartal/kartal.dart';
-import 'package:lottie/lottie.dart';
 part 'parts/build_IndexViewer.dart';
 part 'parts/build_countryInfo.dart';
 part 'parts/build_gridView.dart';
@@ -29,7 +30,6 @@ class _CovidDataViewState extends State<CovidDataView>
     with NetworkImagePathExtansion, NumberFormat, LottiePathEnumExtension {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await context.read<CovidDataCubit>().init(widget.countryName);
@@ -44,7 +44,7 @@ class _CovidDataViewState extends State<CovidDataView>
         title: Text(widget.countryName),
       ),
       body: SingleChildScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         child: Container(
           height: context.height,
           width: context.width,

@@ -19,10 +19,9 @@ class CountryService extends ICountryService {
         return Countries.fromJson(jsonBody);
       } else {
         print(
-            "Exception (COUNTRY SERVICE - STATUS): ${ErrorStrings.client_error} " +
-                response.statusCode.toString());
+            "Exception (COUNTRY SERVICE - STATUS): ${ErrorStrings.client_error} ${response.statusCode}");
         return Countries.withError(
-            "${ErrorStrings.client_error} " + response.statusCode.toString());
+            "${ErrorStrings.client_error} ${response.statusCode}");
       }
     } catch (error, stacktrace) {
       print(

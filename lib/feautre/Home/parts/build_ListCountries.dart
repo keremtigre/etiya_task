@@ -21,15 +21,15 @@ class BuildListCountries extends StatelessWidget {
             );
           },
         )),
-        context.read<HomeCubit>().tempCountry.length < 1
+        context.read<HomeCubit>().tempCountry.isEmpty
             ? SizedBox(
                 height: context.height / 20,
                 width: context.width,
                 child: Card(
                     color: Theme.of(context).primaryColor,
-                    child: Text("No data found to list",)),
+                    child: const Text(HomePageStrings.no_data_text)),
               )
-            : SizedBox()
+            : const SizedBox()
       ],
     );
   }

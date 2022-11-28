@@ -8,7 +8,7 @@ class BuildGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: [ 
         _CountryInfo(countryName: countryName, response: response),
         _IndexViewer(context),
         Flexible(

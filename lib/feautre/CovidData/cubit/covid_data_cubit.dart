@@ -15,6 +15,7 @@ class CovidDataCubit extends Cubit<CovidDataState> {
   late CovidDataService _countryService;
   late CovidDataModel covidModel;
   int currentIndex = 0;
+  //for index_viewer
   setCurrentIndex(int value) {
     currentIndex = value;
     emit(CovidDataLoaded(covidModel.response![0]));
@@ -24,17 +25,19 @@ class CovidDataCubit extends Cubit<CovidDataState> {
     currentIndex = 0;
     try {
       emit(CovidDataLoading());
+      //init CountryService
       _countryService = CovidDataService(
           Dio(BaseOptions(baseUrl: NetworkStrings.baseUrl, queryParameters: {
         "country": country
       }, headers: {
         "X-RapidAPI-Key": NetworkStrings.api_key,
       })));
+      // getData
       covidModel = await _countryService.fetchCovidDataItem();
+      //if has error change state to CovidDataError
       if (covidModel.error != null) {
         emit(CovidDataError(covidModel.error));
       }
-
       emit(CovidDataLoaded(covidModel.response![0]));
     } on NetworkError {
       emit(CovidDataError(ErrorStrings.network_error));

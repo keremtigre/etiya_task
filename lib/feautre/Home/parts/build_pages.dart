@@ -6,7 +6,7 @@ class BuildPages extends StatelessWidget with LottiePathEnumExtension {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(8.0),
+      margin: const EdgeInsets.all(8.0),
       child: BlocConsumer<HomeCubit, HomeState>(
         listener: (context, state) {
           if (state is HomeError) {
@@ -19,7 +19,7 @@ class BuildPages extends StatelessWidget with LottiePathEnumExtension {
           } else if (state is HomeLoading) {
             return toWidget(LottiePathEnum.loading.name);
           } else if (state is HomeLoaded) {
-            return  BuildListCountries();
+            return BuildListCountries();
           } else if (state is HomeError) {
             return Center(
               child: toWidget(LottiePathEnum.error.name),

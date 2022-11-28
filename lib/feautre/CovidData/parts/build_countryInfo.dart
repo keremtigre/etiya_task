@@ -20,6 +20,7 @@ class _CountryInfo extends StatelessWidget
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //Covid Data Page Country Info
           Column(
             children: [
               Spacer(),
@@ -33,6 +34,7 @@ class _CountryInfo extends StatelessWidget
               Spacer(),
             ],
           ),
+          
           Expanded(
             child: Padding(
               padding: EdgeInsets.only(left: context.width / 20),

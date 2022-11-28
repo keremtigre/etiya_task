@@ -33,7 +33,7 @@ class BuildCard extends StatelessWidget
                     width: 20,
                   ),
                   Text(
-                      "${context.watch<HomeCubit>().tempCountry[index].toString()}"),
+                      context.watch<HomeCubit>().tempCountry[index].toString()),
                   const Spacer(),
                   const Icon(Icons.arrow_forward_ios)
                 ],
