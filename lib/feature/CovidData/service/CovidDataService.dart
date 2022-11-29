@@ -1,10 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';
-import 'package:etiya_task/feautre/CovidData/service/ICovidDataService.dart';
-import 'package:etiya_task/feautre/Home/models/country_model.dart';
-import 'package:etiya_task/feautre/Home/service/ICountryService.dart';
+import 'package:etiya_task/feature/CovidData/models/covidData_model.dart';
+import 'package:etiya_task/feature/CovidData/service/ICovidDataService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/enums/urlPathEnum.dart';
 

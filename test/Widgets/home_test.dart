@@ -1,5 +1,5 @@
-import 'package:etiya_task/feautre/Home/cubit/home_cubit.dart';
-import 'package:etiya_task/feautre/Home/home_view.dart';
+import 'package:etiya_task/feature/Home/cubit/home_cubit.dart';
+import 'package:etiya_task/feature/Home/home_view.dart';
 import 'package:etiya_task/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

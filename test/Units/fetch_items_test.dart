@@ -1,8 +1,8 @@
 //  no_leading_underscores_for_local_identifiers
 
 import 'package:dio/dio.dart';
-import 'package:etiya_task/feautre/CovidData/service/CovidDataService.dart';
-import 'package:etiya_task/feautre/Home/service/CountryService.dart';
+import 'package:etiya_task/feature/CovidData/service/CovidDataService.dart';
+import 'package:etiya_task/feature/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Strings/network/network_strings.dart';
 import 'package:etiya_task/product/enums/urlPathEnum.dart';
 import 'package:flutter_test/flutter_test.dart';

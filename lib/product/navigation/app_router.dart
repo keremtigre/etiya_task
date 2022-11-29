@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:etiya_task/feautre/CovidData/covidData_view.dart';
-import 'package:etiya_task/feautre/Home/home_view.dart';
+import 'package:etiya_task/feature/CovidData/covidData_view.dart';
+import 'package:etiya_task/feature/Home/home_view.dart';
 import 'package:flutter/material.dart';
 
 part 'app_router.gr.dart';

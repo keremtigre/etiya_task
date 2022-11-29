@@ -1,8 +1,8 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:etiya_task/feautre/Home/models/country_model.dart';
-import 'package:etiya_task/feautre/Home/service/ICountryService.dart';
+import 'package:etiya_task/feature/Home/models/country_model.dart';
+import 'package:etiya_task/feature/Home/service/ICountryService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/enums/urlPathEnum.dart';
 

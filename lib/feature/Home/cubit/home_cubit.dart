@@ -2,8 +2,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:etiya_task/feautre/Home/models/country_model.dart';
-import 'package:etiya_task/feautre/Home/service/CountryService.dart';
+import 'package:etiya_task/feature/Home/models/country_model.dart';
+import 'package:etiya_task/feature/Home/service/CountryService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/Strings/network/network_strings.dart';
 import 'package:flutter/material.dart';

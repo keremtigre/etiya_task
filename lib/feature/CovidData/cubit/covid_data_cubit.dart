@@ -2,8 +2,8 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';
-import 'package:etiya_task/feautre/CovidData/service/CovidDataService.dart';
+import 'package:etiya_task/feature/CovidData/models/covidData_model.dart';
+import 'package:etiya_task/feature/CovidData/service/CovidDataService.dart';
 import 'package:etiya_task/product/Strings/error_strings.dart';
 import 'package:etiya_task/product/Strings/network/network_strings.dart';
 import 'package:meta/meta.dart';

@@ -2,8 +2,8 @@
 
 library covidData_view.dart;
 
-import 'package:etiya_task/feautre/CovidData/cubit/covid_data_cubit.dart';
-import 'package:etiya_task/feautre/CovidData/models/covidData_model.dart';
+import 'package:etiya_task/feature/CovidData/cubit/covid_data_cubit.dart';
+import 'package:etiya_task/feature/CovidData/models/covidData_model.dart';
 import 'package:etiya_task/product/Strings/covidDataPage_strings.dart';
 import 'package:etiya_task/product/Widget/covid_data_card.dart';
 import 'package:etiya_task/product/Widget/index_viewer.dart';
